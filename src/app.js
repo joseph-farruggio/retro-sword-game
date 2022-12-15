@@ -4,14 +4,20 @@ import Alpine from 'alpinejs'
 Alpine.data('app', function () {
     return {
         init() {
+            
+        },
+       
+        gameStarted: false,
+        points: 0,
+
+        startGame() {
+            this.gameStarted = true
             this.spawnEnemy()
             this.intervals.spawn()
             this.intervals.enemyMove()
             this.intervals.checkAttack()
             this.intervals.checkEnemyAttack()
         },
-       
-        points: 0,
 
         player: {
             lives: 3,
