@@ -1,0 +1,48 @@
+{
+		"name": "debt-form",
+		"version": "1.1.0",
+		"description": "",
+		"main": "app.js",
+		"scripts": {
+				"development:tailwind": "npx tailwindcss --postcss -i ./src/app.css -c ./tailwind.config.js -o ./dist/app.css",
+				"development:esbuild": "npx esbuild ./src/app.js --target=esnext --bundle --outfile=./dist/app.min.js",
+				"development": "run-p development:**",
+				"dev": "npm run development",
+				"watch:tailwind": "npm run development:tailwind -- --watch",
+				"watch:esbuild": "npm run development:esbuild -- --watch",
+				"watch": "run-p watch:**",
+				"production:tailwind": "cross-env NODE_ENV=production npm run development:tailwind -- --minify",
+				"production:esbuild": "npm run development:esbuild -- --minify",
+				"production": "run-p production:**",
+				"prod": "npm run production",
+				"test": "npx cypress open",
+				"serve": "npx http-server"
+		},
+		"author": "",
+		"license": "ISC",
+		"devDependencies": {
+				"@tailwindcss/forms": "^0.5.3",
+				"@tailwindcss/typography": "^0.5.7",
+				"@wordpress/eslint-plugin": "^13.4.0",
+				"archiver": "^5.3.1",
+				"cross-env": "^7.0.3",
+				"esbuild": "^0.15.12",
+				"eslint-plugin-php-markup": "^6.0.0",
+				"eslint-plugin-tailwindcss": "^3.6.2",
+				"npm-run-all": "^4.1.5",
+				"postcss": "^8.4.18",
+				"postcss-import-ext-glob": "^2.0.1",
+				"postcss-simple-vars": "^7.0.0",
+				"prettier": "^2.7.1",
+				"prettier-plugin-tailwindcss": "^0.1.13",
+				"tailwindcss": "^3.2.1"
+		},
+		"dependencies": {
+				"@alpinejs/focus": "^3.10.5",
+				"@alpinejs/mask": "^3.10.5",
+				"@alpinejs/persist": "^3.10.5",
+				"alpinejs": "^3.10.5",
+				"cypress": "^12.0.2",
+				"http-server": "^14.1.1"
+		}
+}

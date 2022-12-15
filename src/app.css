@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+  display: none !important;
+}
+
+
+.player {
+  @apply bg-sky-500 h-9 w-9 rounded-sm ;
+}
+
+.enemy {
+  @apply bg-red-500 h-9 w-9 rounded-sm ;
+}
+
+.sword {
+  @apply text-cyan-200 h-9 w-9 absolute -mt-3 ml-10 transform -rotate-12 transition-all duration-100 ease-linear; 
+}
+
+.sword.attacking {
+  @apply -mt-9 ml-0; 
+  animation: spin .2s linear;
+  
+
+  @keyframes spin {
+    from {
+      transform: rotate(40deg);
+    }
+    to {
+      transform: rotate(-90deg);
+    }
+  }
+}
